@@ -15,5 +15,6 @@ export const ghibliApi = createApi({
 });
 
 export const {
-    useGetFilmsQuery
+    useGetFilmsQuery,
+    useGetPeopleQuery,
 } = ghibliApi;

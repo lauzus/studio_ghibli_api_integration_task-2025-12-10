@@ -1,23 +1,18 @@
-import React from 'react';
-import styles from './App.module.scss';
-import {useGetFilmsQuery} from './api/ghibliApi';
-import {Film} from "./api/types";
+import React from "react";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {SideNavBar} from "./components/SideNavBar/SideNavBar";
+import {About} from "./pages/About";
+import {Films} from "./pages/Films";
 
 function App() {
-    const {data, isLoading} = useGetFilmsQuery();
-    const [selectedFilm, setSelectedFilm] = React.useState<Film | null>(null);
-
-    if (isLoading) return <p>Loading...</p>;
-
     return (
-        <div className={styles.container}>
-            <ul>
-                {data?.map((film: Film) => (
-                    <li key={film.id} onClick={() => setSelectedFilm(film)}>{film.title}</li>
-                ))}
-            </ul>
-            <p>{selectedFilm?.title}</p>
-        </div>
+        <BrowserRouter>
+            <SideNavBar />
+            <Routes>
+                <Route path="/about" element={<About />} />
+                <Route path="/films" element={<Films />} />
+            </Routes>
+        </BrowserRouter>
     );
 }
 
