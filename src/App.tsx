@@ -1,4 +1,3 @@
-import React from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {SideNavBar} from "./components/SideNavBar/SideNavBar";
 import {About} from "./pages/About";
