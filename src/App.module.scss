@@ -1,0 +1,17 @@
+@import './assets/styles/variables.scss';
+
+.container {
+  display: flex;
+  width: 100%;
+  min-height: 100dvh;
+
+  > :first-child {
+    flex-shrink: 0;
+  }
+
+  > :last-child {
+    flex: 1;
+    min-width: 0;
+    padding: $base-spacing-y 5vw;
+  }
+}

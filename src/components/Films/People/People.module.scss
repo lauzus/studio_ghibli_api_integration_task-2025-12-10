@@ -1,0 +1,18 @@
+@import '../../../assets/styles/variables.scss';
+
+.container {
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th {
+    text-align: left;
+    background: $base-color-bg-primary;
+    color: #fff;
+  }
+
+  th, td {
+    padding: 5px;
+  }
+}

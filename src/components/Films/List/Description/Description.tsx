@@ -12,7 +12,7 @@ export const Description = ({text}: FilmListDescriptionProps) => {
     return (
         <div className={`${styles.container} ${show && styles.expanded}`}>
             <p>{text}</p>
-            <Button action={() => setShow(!show)} title={show ? 'Less' : 'More'} />
+            <Button action={() => setShow(!show)} title={show ? 'Read Less' : 'Read More'} />
         </div>
     )
 };

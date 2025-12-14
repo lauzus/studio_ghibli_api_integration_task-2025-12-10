@@ -16,10 +16,10 @@ export const List = ({setSelectedFilm}: FilmsListProps) => {
     return (
         <div className={styles.container}>
             {data?.map((film: Film) => (
-                <div key={film.id}>
-                    <p>{film.title}</p>
+                <div key={film.id} className={styles.card}>
+                    <p className={styles.title}>{film.title}</p>
                     <Description text={film.description}/>
-                    <p>Release date: {film.release_date}</p>
+                    <p><b>Release date:</b> {film.release_date}</p>
                     <Button action={() => setSelectedFilm(film)} title="Show People"/>
                 </div>
             ))}

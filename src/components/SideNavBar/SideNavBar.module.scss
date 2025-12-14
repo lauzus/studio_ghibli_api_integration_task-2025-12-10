@@ -1,0 +1,41 @@
+@import '../../assets/styles/variables.scss';
+
+$sidenavbar-padding: 7px 20px;
+$sidenavbar-color-accent: #a6a6a6;
+
+.container {
+  padding: $base-spacing-y 0;
+  background: $base-color-bg-primary;
+  width: 200px;
+  min-width: 100px;
+
+  p {
+    padding: $sidenavbar-padding;
+    color: $sidenavbar-color-accent;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    li {
+      width: 100%;
+
+      a {
+        text-decoration: none;
+        color: #fff;
+        width: 100%;
+        display: block;
+        padding: $sidenavbar-padding;
+
+        &.current {
+          background: $sidenavbar-color-accent;
+          color: #000;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

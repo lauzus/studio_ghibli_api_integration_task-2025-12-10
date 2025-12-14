@@ -1,4 +1,5 @@
 import {Film, Person} from "../../../api/types";
+import styles from "./People.module.scss";
 
 interface FilmsSelectedProps {
     people: Person[];
@@ -7,8 +8,8 @@ interface FilmsSelectedProps {
 
 export const People = ({film, people}: FilmsSelectedProps) => {
     return (
-        <div>
-            <h2>{film.title}</h2>
+        <div className={styles.container}>
+            <h2>People in {film.title}:</h2>
             {
                 people && people.length ?
                     <table>

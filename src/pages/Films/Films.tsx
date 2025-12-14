@@ -1,8 +1,8 @@
 import {useState, useMemo} from "react";
-import {List} from "../components/Films/List/List";
-import {Film} from "../api/types";
-import {People} from "../components/Films/People/People";
-import {useGetPeopleQuery} from "../api/ghibliApi";
+import {List} from "../../components/Films/List/List";
+import {Film} from "../../api/types";
+import {People} from "../../components/Films/People/People";
+import {useGetPeopleQuery} from "../../api/ghibliApi";
 
 export const Films = () => {
     const [selectedFilm, setSelectedFilm] = useState<Film | null>(null);
@@ -18,6 +18,7 @@ export const Films = () => {
 
     return (
         <div>
+            <h1>Films</h1>
             <List setSelectedFilm={setSelectedFilm}/>
             {
                 selectedFilm &&
