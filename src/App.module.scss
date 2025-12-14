@@ -1,9 +1,14 @@
-@import './assets/styles/variables.scss';
+@use './assets/styles/variables.scss' as v;
+@use './assets/styles/mixins.scss' as m;
 
 .container {
   display: flex;
   width: 100%;
   min-height: 100dvh;
+
+  @include m.responsive(s) {
+    flex-direction: column;
+  }
 
   > :first-child {
     flex-shrink: 0;
@@ -12,6 +17,6 @@
   > :last-child {
     flex: 1;
     min-width: 0;
-    padding: $base-spacing-y 5vw;
+    padding: v.$base-spacing-y 5vw;
   }
 }

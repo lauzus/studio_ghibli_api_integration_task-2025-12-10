@@ -1,6 +1,9 @@
-@import '../../../assets/styles/variables.scss';
+@use '../../../assets/styles/variables.scss' as v;
 
 .container {
+  display: flex;
+  flex-direction: column;
+
   table {
     border-collapse: collapse;
     width: 100%;
@@ -8,7 +11,7 @@
 
   th {
     text-align: left;
-    background: $base-color-bg-primary;
+    background: v.$base-color-bg-primary;
     color: #fff;
   }
 

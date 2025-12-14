@@ -1,11 +1,11 @@
-@import '../../assets/styles/variables.scss';
+@use '../../assets/styles/variables.scss' as v;
 
 $sidenavbar-padding: 7px 20px;
 $sidenavbar-color-accent: #a6a6a6;
 
 .container {
-  padding: $base-spacing-y 0;
-  background: $base-color-bg-primary;
+  padding: v.$base-spacing-y 0;
+  background: v.$base-color-bg-primary;
   width: 200px;
   min-width: 100px;
 
