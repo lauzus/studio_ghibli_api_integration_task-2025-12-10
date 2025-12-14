@@ -6,8 +6,10 @@
   width: 100%;
   min-height: 100dvh;
 
-  @include m.responsive(s) {
+  @include m.responsive(m) {
     flex-direction: column;
+    height: 100dvh;
+    overflow: hidden;
   }
 
   > :first-child {
@@ -18,5 +20,10 @@
     flex: 1;
     min-width: 0;
     padding: v.$base-spacing-y 5vw;
+    overflow: auto;
+
+    @include m.responsive(m) {
+      padding: v.$mobile-spacing-y 5vw;
+    }
   }
 }
