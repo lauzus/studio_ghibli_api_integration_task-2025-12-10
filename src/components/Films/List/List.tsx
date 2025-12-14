@@ -9,9 +9,14 @@ interface FilmsListProps {
 }
 
 export const List = ({setSelectedFilm}: FilmsListProps) => {
-    const {data, isLoading} = useGetFilmsQuery();
+    const {data, error, isLoading} = useGetFilmsQuery();
 
     if (isLoading) return <p>Loading...</p>;
+
+    if (error) {
+        console.error(error);
+        return <p>Error loading films. Please try again later.</p>;
+    }
 
     return (
         <div className={styles.container}>

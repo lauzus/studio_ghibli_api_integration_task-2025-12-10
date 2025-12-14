@@ -8,14 +8,19 @@ export const Films = () => {
     const [selectedFilm, setSelectedFilm] = useState<Film | null>(null);
     const listRef = useRef<HTMLDivElement>(null);
 
-    const {data} = useGetPeopleQuery();
+    const {data, error} = useGetPeopleQuery();
 
     const selectedFilmPeople = useMemo(() => {
         if (!data || !selectedFilm) return [];
         return data?.filter(person => person.films.includes(
             `https://ghibliapi.vercel.app/films/${selectedFilm.id}`
         ));
-    }, [data, selectedFilm])
+    }, [data, selectedFilm]);
+
+    if (error) {
+        console.error(error);
+        return <p>Error loading people. Please try again later.</p>;
+    }
 
     const handleClosePeople = () => {
         setSelectedFilm(null);
