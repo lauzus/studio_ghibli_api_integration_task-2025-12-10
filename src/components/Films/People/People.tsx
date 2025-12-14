@@ -1,15 +1,24 @@
 import {Film, Person} from "../../../api/types";
 import styles from "./People.module.scss";
+import {useEffect, useRef} from "react";
+import {Button} from "../../Partials/Button/Button";
 
 interface FilmsSelectedProps {
     people: Person[];
     film: Film;
+    onClose: () => void;
 }
 
-export const People = ({film, people}: FilmsSelectedProps) => {
+export const People = ({film, people, onClose}: FilmsSelectedProps) => {
+    const tableRef = useRef<HTMLTableElement>(null);
+
+    useEffect(() => {
+        tableRef.current?.focus();
+    }, [people]);
+
     return (
         <div className={styles.container}>
-            <h2>People in {film.title}:</h2>
+            <h2 tabIndex={-1} ref={tableRef}>People in {film.title}:</h2>
             {
                 people && people.length ?
                     <table>
@@ -36,6 +45,7 @@ export const People = ({film, people}: FilmsSelectedProps) => {
                     </table> :
                     <p>No people for this film</p>
             }
+            <Button action={onClose} title={'Close List'} hidden={true} />
         </div>
     )
 }

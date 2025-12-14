@@ -1,20 +1,26 @@
 import {NavLink} from "react-router-dom";
 import styles from './SideNavBar.module.scss';
+import {Button} from "../Partials/Button/Button";
+
+interface SideNavBarProps {
+    onSkip: () => void;
+}
 
 const routes = [
-    {path: '/about', label: 'About', key: 1},
+    {path: '/', label: 'About', key: 1},
     {path: '/films', label: 'Films', key: 2}
-]
-export const SideNavBar = () => {
+];
+export const SideNavBar = ({onSkip}: SideNavBarProps) => {
     return (
-        <div className={styles.container}>
+        <nav aria-label={'Main navigation'} className={styles.container}>
             <p>Navigation:</p>
+            <Button action={onSkip} title={'Skip to content'} hidden={true}/>
             <ul>
                 {
                     routes.map(route => (
                         <li key={route.key}>
                             <NavLink to={route.path}
-                                     className={({ isActive }) =>
+                                     className={({isActive}) =>
                                          isActive ? styles.current : ''
                                      }
                             >{route.label}</NavLink>
@@ -22,6 +28,6 @@ export const SideNavBar = () => {
                     ))
                 }
             </ul>
-        </div>
+        </nav>
     )
 }
