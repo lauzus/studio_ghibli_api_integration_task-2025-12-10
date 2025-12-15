@@ -15,16 +15,24 @@ export const Description = ({text}: FilmListDescriptionProps) => {
         const el = textRef.current;
         if (!el) return;
 
-        setShowButton(el.scrollHeight > el.clientHeight);
+        const handleShowButton = () => {
+            if (!show) {
+                setShowButton(el.scrollHeight > el.clientHeight);
+            } else {
+                setShowButton(true);
+            }
+        };
+
+        handleShowButton();
 
         const observer = new ResizeObserver(() => {
-            setShowButton(el.scrollHeight > el.clientHeight);
+            handleShowButton();
         });
 
         observer.observe(el);
 
         return () => observer.disconnect();
-    }, [text]);
+    }, [text, show]);
 
     return (
         <div className={`${styles.container} ${show && styles.expanded}`}>
