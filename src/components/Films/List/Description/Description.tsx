@@ -31,7 +31,7 @@ export const Description = ({text}: FilmListDescriptionProps) => {
             <p ref={textRef}>{text}</p>
             {
                 showButton &&
-                <Button action={() => setShow(!show)} title={show ? 'Read Less' : 'Read More'} srSkip={true} />
+                <Button action={() => setShow(!show)} title={show ? 'Read Less' : 'Read More'}/>
             }
         </div>
     )

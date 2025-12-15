@@ -5,13 +5,13 @@ interface PartialsButtonProps {
     title: string;
     hidden?: boolean;
     srSkip?: boolean;
+    disabled?: boolean;
 }
 
-export const Button = ({action, title, hidden, srSkip}: PartialsButtonProps) => {
+export const Button = ({action, title, hidden, disabled}: PartialsButtonProps) => {
     return (
-        <button className={`${styles.container} ${hidden && styles.hidden}`}
+        <button className={`${styles.container} ${hidden ? styles.hidden : ''} ${disabled ? styles.disabled : ''}`}
                 onClick={action}
-                aria-hidden={srSkip}
         >{title}</button>
     )
 }

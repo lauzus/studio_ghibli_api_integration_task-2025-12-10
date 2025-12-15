@@ -6,9 +6,10 @@ import {Button} from "../../Partials/Button/Button";
 
 interface FilmsListProps {
     setSelectedFilm: (film: Film) => void;
+    selectedFilm: Film | null;
 }
 
-export const List = ({setSelectedFilm}: FilmsListProps) => {
+export const List = ({setSelectedFilm, selectedFilm}: FilmsListProps) => {
     const {data, error, isLoading} = useGetFilmsQuery();
 
     if (isLoading) return <p>Loading...</p>;
@@ -25,7 +26,10 @@ export const List = ({setSelectedFilm}: FilmsListProps) => {
                     <p className={styles.title}>{film.title}</p>
                     <Description text={film.description}/>
                     <p><b>Release date:</b> {film.release_date}</p>
-                    <Button action={() => setSelectedFilm(film)} title="Show People"/>
+                    <Button action={() => setSelectedFilm(film)}
+                            title="Show People"
+                            disabled={selectedFilm === film}
+                    />
                 </div>
             ))}
         </div>

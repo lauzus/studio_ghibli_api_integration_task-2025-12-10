@@ -30,7 +30,7 @@ export const Films = () => {
     return (
         <div>
             <h1 tabIndex={-1} ref={listRef}>Films</h1>
-            <List setSelectedFilm={setSelectedFilm}/>
+            <List setSelectedFilm={setSelectedFilm} selectedFilm={selectedFilm}/>
             {
                 selectedFilm &&
                 selectedFilmPeople &&
