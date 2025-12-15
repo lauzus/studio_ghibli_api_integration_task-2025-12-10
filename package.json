@@ -46,5 +46,10 @@
   },
   "devDependencies": {
     "typescript": "^4.9.5"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@reduxjs/toolkit|@standard-schema)/)"
+    ]
   }
 }
